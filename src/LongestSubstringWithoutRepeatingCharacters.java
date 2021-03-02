@@ -34,10 +34,10 @@ import java.util.Set;
 public class LongestSubstringWithoutRepeatingCharacters {
 
 
-    public static int lengthOfLongestSubstring(String s){
+    public static int lengthOfLongestSubstring(String s) {
 
         // Check empty array, null array
-        if(s == null || s.isEmpty()){
+        if (s == null || s.isEmpty()) {
             return 0;
         }
 
@@ -45,15 +45,15 @@ public class LongestSubstringWithoutRepeatingCharacters {
         Set<Character> set = new HashSet<>();
         while (end < s.length()) {
             char toAdd = s.charAt(end);
-                if (!set.contains(toAdd)) {
-                    set.add(toAdd);
-                    end++;
-                    longest = Math.max(longest, set.size());
-                }
-                else {
-                    set.remove(s.charAt(start++));
-                }
-        } return longest;
+            if (!set.contains(toAdd)) {
+                set.add(toAdd);
+                end++;
+                longest = Math.max(longest, set.size());
+            } else {
+                set.remove(s.charAt(start++));
+            }
+        }
+        return longest;
     }
 
 
