@@ -38,17 +38,18 @@ public class RotateImage {
 
     public void rotate2(int[][] matrix) {
 
-        int n = matrix.length;
+        int n = matrix.length -1;
 
-        for (int i = 0; i < n / 2; i++)
-            //n/2 count of all the cycles
-            for (int j = i; j < n - i - 1; j++) {
+        for (int i = 0; i < matrix.length/ 2; i++)
+            //matrix.length/2 count of all the cycles, in  each iteration, we are working on 2 rows, so we
+            // iterate from 0 to matrix.length/2 and not till matrix.length.
+            for (int j = i; j < n - i; j++) {
                 //four moves are done each time the inner for is executed
                 int tmp = matrix[i][j];
-                matrix[i][j] = matrix[n - j - 1][i];
-                matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
-                matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1];
-                matrix[j][n - i - 1] = tmp;
+                matrix[i][j] = matrix[n - j][i];
+                matrix[n - j][i] = matrix[n - i][n - j];
+                matrix[n - i][n - j] = matrix[j][n - i];
+                matrix[j][n - i] = tmp;
             }
     }
 }
